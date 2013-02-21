@@ -1,0 +1,67 @@
+// document header
+===================
+
+author: kasuncp
+date: 21/02/2013
+
+version: 1.00
+
+// class name
+===============
+
+AbstractPlayer
+
+
+// brief description
+=====================
+
+This is the base Player class. Both HumanPlayer, AIPlayer and anyother Player classes inherit from this.
+Handles the basic house-keeping work related to Players. 
+
+
+// requirements
+================
+
+1) Must have a mechanism to keep and manage the dealt cards.
+
+2) Must have a way to select the next move of the player. ( Implementation may differ from one player to another )
+
+3) Must have sprites for the drawing purposes.
+
+4) Must know if the player can be selected.
+
+5) Must have bounding geometry for player selection and other input based events.
+
+6) Must have a mechanism to process user input. ( Mouse clicks, touch events etc. )
+
+7) Must keep the history of moves made by the player.
+
+8) Must be able to draw itself.
+
+
+// attributes < justification (optional) >
+==================================================
+
+protected Hand oHand;						< requirement (1); Hand class will manage and hold all the cards dealt to the player;
+												For now, all the attributes are protected, consider if they should be private; >
+										
+protected ArrayList< Move > aoMoveHistory; 	< requirement (6); libgdx have an Array class which might be better than this, consider replacing; >
+
+protected Texture oPlayerSprite;			< requirement (3); >
+
+protected bool bIsSelectable;				< requirement (4); >
+
+protected Rectangle oBoundingBox;			< requirement (5); A rectangle is used for ease and efficiency; >
+
+
+
+// methods < justification (optional) >
+===============================================
+
+* certain getters and setters are implied.
+
+public abstract Move getNextMove();			< requirement (2); The abstract method should be implemented by each concrete subclass; >
+
+
+
+
