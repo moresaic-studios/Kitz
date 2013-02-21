@@ -1,0 +1,35 @@
+// document header
+===================
+
+author:
+date:
+
+version:
+
+// class name
+===============
+
+
+
+
+// brief description
+=====================
+
+
+
+
+// requirements
+================
+
+
+
+
+// attributes < justification (optional) >
+==================================================
+
+
+
+
+// methods < justification (optional) >
+===============================================
+

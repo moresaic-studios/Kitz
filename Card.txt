@@ -1,0 +1,85 @@
+// document header
+===================
+
+author: kasuncp
+date: 21/02/2013
+
+version: 1.00
+
+// class name
+===============
+
+Card
+
+// brief description
+=====================
+
+This class represents a Kitz card. It handles each card's position and side updating, 
+sprite management, drawing etc.
+
+// requirements
+================
+
+1) Must have a suit, a kit type and a number or a letter.
+
+2) Has sprites for the front and the back of the card for drawing purposes.
+
+3) Must know it's current position on the screen. ( for drawing )
+
+4) Must have a way to turn the card. 
+
+5) Must know whether it is currently turned to the face side or back. ( for drawing )
+
+6) Draw the card in the correct position with the correct sprite.
+
+7) Must have a way to know the suit, kit and the number of the card.
+
+
+// attributes < justification (optional) >
+==================================================
+
+public static final int CARD_VALUE_ONE 		= 0b00000000;	< requirement (1); last 3 digits will represent the card number >
+public static final int CARD_VALUE_TWO 		= 0b00000001;
+public static final int CARD_VALUE_THREE 	= 0b00000010;
+public static final int CARD_VALUE_FOUR 	= 0b00000011;
+public static final int CARD_VALUE_FIVE 	= 0b00000100;
+public static final int CARD_VALUE_SIX 		= 0b00000101;
+
+public static final int CARD_KIT_MINOR		= 0b00000000;	< requirement (1); 4th digit from the end represents the kit ( maj/min ) >
+public static final int CARD_KIT_MAJOR		= 0b00001000;
+
+public static final int CARD_SUIT_ALPHA		= 0b00000000;	< requirement (1); 5th and 6th digits from the end represent the suit >
+public static final int CARD_SUIT_BETA		= 0b00010000;
+public static final int CARD_SUIT_GEMMA		= 0b00100000;
+public static final int CARD_SUIT_DELTA		= 0b00110000;
+
+private static final int CARD_FACE_UP		= 0;			< requirements (4) and (5); >
+private static final int CARD_FACE_DOWN		= 1;
+
+private final int iCardID;									< requirement (1); this is the main identifier for each card 
+																usage ex: iCardID = CARD_SUIT_ALPHA | CARD_KIT_MAJOR | CARD_VALUE_FOUR >
+
+private int iFace;											< requirements (4) and (5); usage ex: iFace = CARD_FACE_DOWN; >
+
+private Texture[] aoCardFaces;								< requirement (2); size: 2;  >		
+
+private int iXPos, iYPos;									< requirement (3); >
+
+
+// methods < justification (optional) >
+===============================================
+
+* some Getters and Setters are implied. ex: iXPos and iYPos
+
+public int getSuit();					< requirement (7); return ex: CARD_SUIT_BETA; >
+
+public int getKit();					< requirement (7); return ex: CARD_KIT_MINOR; >
+
+public int getValue();					< requirement (7); return ex: CARD_VALUE_THREE; >
+
+public void turn();						< requirement (4); >
+
+public int face();						< requirement (5); returns: CARD_FACE_UP or CARD_FACE_DOWN; >
+
+public void draw();						< requirement (6); depends on the graphics rendering 
+											mechanism, check before implimentation >

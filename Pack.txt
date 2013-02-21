@@ -1,0 +1,62 @@
+// document header
+===================
+
+author: kasuncp
+date: 21/02/2013
+
+version: 1.00
+
+// class name
+==============
+
+Pack
+
+
+// brief description
+=====================
+
+This class handles all the attributes and functionalities related to the a 
+Kitz card pack.
+
+
+// requirements
+================
+
+1) Hold all the cards of a Kitz pack in a managable way. ( Act as an efficient 
+	container for the cards ).
+	
+2) There needs to be a certain order to the cards in the pack at a given time.
+	
+3) Ability to shuffle the cards well. (The order is changed)
+
+4) Ability to deal a given number of cards out of the pack.
+
+5) Look at any card given the position at the stack of cards. 
+
+6) Display the cards in an appropriate way.
+
+
+// attributes < justification (optional) >
+==================================================
+
+public static final int PACK_SIZE = 48; 	< any class that needs must be able to access this information >
+
+Card[] aoCardStack; 						< requirement (1) and (2); an array was used for simplicity; size: PACK_SIZE >
+											< libgdx has a utility called Array. Very suitable. consider using it. >
+
+
+// methods < justification (optional) >
+===============================================
+
+public void shuffle(); 											< requirement (3) >
+
+public void deal( AbstractPlayer player, int iNumCards = 1 ); 	< requirement (4); player must be specified. >
+
+public Card peek( int iIndex ); 								< requirement (5); iIndex range: [0 - (PACK_SIZE - 1)]>
+
+public void draw();												< requirement (6); depends on the graphics rendering 
+																	mechanism, check before implimentation >
+
+
+
+
