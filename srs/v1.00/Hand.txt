@@ -1,0 +1,67 @@
+// document header
+===================
+
+author: kasuncp
+date: 22/02/2013
+
+version: 1.00
+
+
+// class name
+===============
+
+Hand
+
+
+// brief description
+=====================
+
+This class acts as a container for the cards dealt to the player. It holds the cards in a 
+manageable way and has methods to get various information about the cards in hand.
+
+
+// requirements
+================
+
+1) Must be able to categorize cards based on the suit and kit.
+
+2) Must have ways to get information about each suit and kit.
+	
+	a) To know which cards the hand already has from each suit/kit.
+	b) To know what cards needed to complete a given kit.
+	c) To know the total number of cards the hand has.
+
+3) Must be able to sort the cards according to certain criteria ( Ex: kit based, suit based, most recently recieved ). 
+
+4) Must have a way to add and remove cards to and from hand efficiently. 
+	
+
+// attributes < justification (optional) >
+==================================================
+
+private ArrayList< Card > aoCardsInHand; 		< requirement (2c) and(4); An ArrayList is used for ease, consider using libgdx's Array class; 
+													Also consider using a custom made data structure more suitable for the fuctionalities of this class;
+													maximum size: Pack.PACK_SIZE; >
+
+private Pack oKitzPack;							< requirement (2b); This reference to the Kitz pack is needed for the class to know about all the cards
+													that exists; >
+
+// methods < justification (optional) >
+===============================================
+
+public void add( Card oCard);						< requirement (4); >
+public void add( Card[] oaCard);	
+
+public Card remove(int iCardID);					< requirement (4); 
+														Ex usage: remove( Card.CARD_SUIT_ALPHA | Card.CARD_KIT_MAJOR | Card.CARD_VALUE_FOUR);
+														returns "null" if the card isn't in the hand; >
+
+public Card[] getCardsByType( int iType );			< requirement (1) and (2a); The possible values for iType are Card classes public constants. 
+														Ex usage: getCardsOfType(Card.CARD_SUIT_ALPHA) or 
+														getCardsOfType( Card.CARD_KIT_MAJOR | Card.CARD_VALUE_FOUR);
+														returns an empty array if the hand doesn't have that type; >
+
+public Card[] getMissingCardsByType( int iType );	< requirement (2b); iType uses the bitwise addition of Card.CARDS_SUIT and Card.CARD_KIT;
+														returns the missing cards of the kit; >
+														
+public void sort( int iType = Card.CARD_DEFAULT );	< requirement (3); Values for iType are one of Card.CARDS_SUIT or Card.CARD_KIT; >

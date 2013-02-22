@@ -4,7 +4,7 @@
 author: kasuncp
 date: 21/02/2013
 
-version: 1.00
+version: 1.01
 
 // class name
 ===============
@@ -40,12 +40,15 @@ Handles the basic house-keeping work related to Players.
 
 9) Must have a mechanism to check whether a given input is within the bounds of the player.
 
+10) Method to execute the next move.
+
 
 // attributes < justification (optional) >
 ==================================================
 
-protected Hand oHand;						< requirement (1); Hand class will manage and hold all the cards dealt to the player;
-												For now, all the attributes are protected, consider if they should be private; >
+** For now, all the attributes are protected, consider if they should be private
+
+protected Hand oHand;						< requirement (1); Hand class will manage and hold all the cards dealt to the player; >
 										
 protected ArrayList< Move > aoMoveHistory; 	< requirement (6); libgdx have an Array class which might be better than this, consider replacing; >
 
@@ -55,6 +58,7 @@ protected bool bIsSelectable;				< requirement (4); >
 
 protected Rectangle oBoundingBox;			< requirement (5); A rectangle is used for ease and efficiency; >
 
+protected Move oNextMove;					< requirements (2) and (10); >
 
 
 // methods < justification (optional) >
@@ -62,12 +66,15 @@ protected Rectangle oBoundingBox;			< requirement (5); A rectangle is used for e
 
 * certain getters and setters are implied.
 
-public abstract Move getNextMove();				< requirement (2); The abstract method should be implemented by each concrete subclass; >
+public abstract Move getNextMove();				< requirement (2); The abstract method should be implemented by each concrete subclass; 
+													Must set oNextMove; >
 
 public boolean isWithinBounds(int iX, int iY);	< requirement (9); >
 
 public void draw();								< requirement (8); depends on the graphics rendering 
 													mechanism, check before implimentation >
+													
+public boolean execute();						< requirement (10); Must be preceeded by getNextMove(); oNextMove will be executed; >
 													
 													
 *** Input handling is not cosvered in this version of the description. It is yet to be determined. Check later version of the doc.
