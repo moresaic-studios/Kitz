@@ -26,7 +26,7 @@ Handles the basic house-keeping work related to Players.
 
 2) Must have a way to select the next move of the player. ( Implementation may differ from one player to another )
 
-3) Must have sprites for the drawing purposes.
+3) Must have sprites for drawing purposes.
 
 4) Must know if the player can be selected.
 
@@ -37,6 +37,8 @@ Handles the basic house-keeping work related to Players.
 7) Must keep the history of moves made by the player.
 
 8) Must be able to draw itself.
+
+9) Must have a mechanism to check whether a given input is within the bounds of the player.
 
 
 // attributes < justification (optional) >
@@ -60,8 +62,12 @@ protected Rectangle oBoundingBox;			< requirement (5); A rectangle is used for e
 
 * certain getters and setters are implied.
 
-public abstract Move getNextMove();			< requirement (2); The abstract method should be implemented by each concrete subclass; >
+public abstract Move getNextMove();				< requirement (2); The abstract method should be implemented by each concrete subclass; >
 
+public boolean isWithinBounds(int iX, int iY);	< requirement (9); >
 
-
-
+public void draw();								< requirement (8); depends on the graphics rendering 
+													mechanism, check before implimentation >
+													
+													
+*** Input handling is not cosvered in this version of the description. It is yet to be determined. Check later version of the doc.
