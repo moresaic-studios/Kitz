@@ -4,7 +4,7 @@
 author: kasuncp
 date: 21/02/2013
 
-version: 1.00
+version: 1.01
 
 // class name
 ==============
@@ -34,19 +34,24 @@ Kitz card pack.
 5) Look at any card given the position at the stack of cards. 
 
 6) Display the cards in an appropriate way.
-
-
 // attributes < justification (optional) >
 ==================================================
 
-public static final int PACK_SIZE = 48; 	< any class that needs must be able to access this information >
+public static final int PACK_SIZE = 48; 				< any class that needs must be able to access this information >
 
-Card[] aoCardStack; 						< requirement (1) and (2); an array was used for simplicity; size: PACK_SIZE >
-											< libgdx has a utility called Array. Very suitable. consider using it. >
+
+
+private Card[] aoCardStack; 							< requirement(2); an array was used for simplicity; size: PACK_SIZE >
+														< libgdx has a utility called Array. Very suitable. consider using it. >
+
+private Map< int, <Map <int, Card[]> >> aoCardTree;		< requirement (1); Has the same references as aoCardStack; 
+															For indexing, use Card class's public constants; >
 
 
 // methods < justification (optional) >
 ===============================================
+
+public boolean initialize();									< use this method to make sure the Cards are put into structures correctly >
 
 public void shuffle(); 											< requirement (3) >
 
@@ -57,6 +62,7 @@ public Card peek( int iIndex ); 								< requirement (5); iIndex range: [0 - (P
 public void draw();												< requirement (6); depends on the graphics rendering 
 																	mechanism, check before implimentation >
 
-
+public Card[] getAllCards();									< Convenient getter methods; The possible values for iType are Card classes public constants. >
+public Card[] getAllCardsByType( int iType );
 
 

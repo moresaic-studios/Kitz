@@ -4,7 +4,7 @@
 author: kasuncp
 date: 21/02/2013
 
-version: 1.00
+version: 1.01
 
 // class name
 ===============
@@ -52,6 +52,8 @@ public static final int CARD_SUIT_ALPHA		= 0b00000000;	< requirement (1); 5th an
 public static final int CARD_SUIT_BETA		= 0b00010000;
 public static final int CARD_SUIT_GEMMA		= 0b00100000;
 public static final int CARD_SUIT_DELTA		= 0b00110000;
+
+public static final int CARD_DEFAULT		= 0b10000000;
 
 private static final int CARD_FACE_UP		= 0;			< requirements (4) and (5); >
 private static final int CARD_FACE_DOWN		= 1;
