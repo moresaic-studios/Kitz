@@ -42,11 +42,15 @@ Handles the basic house-keeping work related to Players.
 
 10) Method to execute the next move.
 
+11) Must have s unique ID;
+
 
 // attributes < justification (optional) >
 ==================================================
 
 ** For now, all the attributes are protected, consider if they should be private
+
+protected int iPlayerID;					< requirement (11); >
 
 protected Hand oHand;						< requirement (1); Hand class will manage and hold all the cards dealt to the player; >
 										
