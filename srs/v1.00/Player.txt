@@ -9,7 +9,7 @@ version: 1.01
 // class name
 ===============
 
-AbstractPlayer
+Player
 
 
 // brief description
@@ -40,9 +40,7 @@ Handles the basic house-keeping work related to Players.
 
 9) Must have a mechanism to check whether a given input is within the bounds of the player.
 
-10) Method to execute the next move.
-
-11) Must have s unique ID;
+10) Must have s unique ID;
 
 
 // attributes < justification (optional) >
@@ -77,8 +75,6 @@ public boolean isWithinBounds(int iX, int iY);	< requirement (9); >
 
 public void draw();								< requirement (8); depends on the graphics rendering 
 													mechanism, check before implimentation >
-													
-public boolean execute();						< requirement (10); Must be preceeded by getNextMove(); oNextMove will be executed; >
 													
 													
 *** Input handling is not cosvered in this version of the description. It is yet to be determined. Check later version of the doc.
