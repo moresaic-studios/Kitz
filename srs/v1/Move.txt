@@ -1,0 +1,57 @@
+// document header
+===================
+
+author: kasuncp
+date: 24/01/2013
+
+version: 1.00
+
+// class name
+===============
+
+Move
+
+
+// brief description
+=====================
+
+This is the abstract base class that all the moves in the game inherit from. All the moves will be executed by the Dealer class. 
+There are 2 primary types of moves in Kitz, "ask for a card" move and "drop a kit" move. Each of these types can fall into 2 categories.
+They are "raw" moves, meaning the move object is created but its action is not been executed yet, and "executed" moves, meaning the opposite.
+
+
+// requirements
+================
+
+1) Must have a unique id for each move. 
+
+2) Timestamps for object creation time and executed time. ( might come in handy, who knows :D )
+
+3) Hold all the details of the move necessary for the dealer to execute the move. ( Ex: which player initiated the move etc. )
+
+4) A way to know what type of a move it is.
+
+5) A way to determine if the move is executed or not.
+
+																
+// attributes < justification (optional) >
+==================================================
+
+public static final int MOVE_TYPE_ASK_CARD		= 0x00000000;			< requirement (4); >
+public static final int MOVE_TYPE_DROP_KIT		= 0x80000000;
+
+protected int iMoveID; 													< requirement (1); 
+																			usage ex: iMoveID = {some integer less than 0x80000000} | MOVE_TYPE_DROP_KIT; >
+																			
+protected double dTimeCreated;											< requirement (2); >
+protected double dTimeExecuted;
+
+protected int iPrimaryPlayer;											< requirement (3); This field is valid for all the moves; >
+
+protected boolean bIsExecuted;											< requirement (5); >
+
+
+// methods < justification (optional) >
+===============================================
+
+*** Basic getters and setters 
