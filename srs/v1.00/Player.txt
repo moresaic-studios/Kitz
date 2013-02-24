@@ -4,7 +4,7 @@
 author: kasuncp
 date: 21/02/2013
 
-version: 1.01
+version: 1.02
 
 // class name
 ===============
@@ -34,7 +34,7 @@ Handles the basic house-keeping work related to Players.
 
 6) Must have a mechanism to process user input. ( Mouse clicks, touch events etc. )
 
-7) Must keep the history of moves made by the player.
+7) Must keep the history of moves made by the players.
 
 8) Must be able to draw itself.
 
@@ -52,7 +52,8 @@ protected int iPlayerID;					< requirement (11); >
 
 protected Hand oHand;						< requirement (1); Hand class will manage and hold all the cards dealt to the player; >
 										
-protected ArrayList< Move > aoMoveHistory; 	< requirement (6); libgdx have an Array class which might be better than this, consider replacing; >
+protected ArrayList< Move > aoMoveHistory; 	< requirement (7); libgdx have an Array class which might be better than this, consider replacing; 
+												This might need to change later; >
 
 protected Texture oPlayerSprite;			< requirement (3); >
 
