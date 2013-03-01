@@ -1,0 +1,80 @@
+// document header
+===================
+
+author: kasuncp
+date: 01/03/2013
+
+version: 1.00
+
+// class name
+===============
+
+Dealer
+
+
+// brief description
+=====================
+
+This is the class that has the knowledge about the game rules. When a player specifies a move,
+the dealer is the class that execute it. The execution depends on the game rules. This way,
+it is easier to change the game logic without having to change a lot of code. The dealer also
+notifies other players about each game move executed so that all the players will know what is
+going on.
+
+p.s.
+The dealer is the core class that controlls the flow of the game. He keeps track of the scores
+and decides the game over conditions and announces the winners.
+
+// requirements
+================
+
+1) A method to execute game moves.
+
+2) Change the current turn based on the result of the executed move.
+
+3) A way for players to register themselves for notifications.
+
+4) Notify other players about the last executed move.
+
+5) Have a history of moves executed.
+
+6) Must have an idea about the teams each player belongs to.
+
+7) A way to keep the score of each team.
+
+8) Check to see if the game is won by a team after each kit drop.
+
+
+// attributes < justification (optional) >
+==================================================
+
+private Move oLastMove;					< requirement (4); >
+
+private Player[] aoPlayers;				< requirement (3); maximum size: 6; >
+
+private int iTurn;					< requirement (2); range: [0 - 5]; >
+
+private ArrayList< Move > aoMoveHistory;		< requirement (5); >
+
+** For now, requirement (6) will be satisfied by having 2 teams. To identify players belonging to each team,
+   we will use the PlayerID being odd or even.
+
+private int[] aiScore;					< requirement (7); size: 2; >
+
+private int iWinner;					< requirement (8); Represent a team; Basically being odd or even is checked; >
+
+
+// methods < justification (optional) >
+===============================================
+
+private boolean execute( Move oMove );			< requirements (1) and (2); This method also changes the next turn based on the 
+								success of execution; >
+
+public void registerPlayer( Player oPlayer );		< requirement (3); >
+
+
+private boolean hasWon();				< requirement (8); This method checks the scores and sets the iWinner variable; 
+								It also determines whether to continue game or not. >
+
+public void notify( Player oPlayer );			< requirement (4); >
+public void notifyAll();
